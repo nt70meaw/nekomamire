@@ -35,7 +35,6 @@
 
 
 ## 使用素材
-・フリーアイコンは下記を使用予定。
+・フリーアイコン、フリーイラストは下記サイトを使用予定。
 - Font Awesome　https://fontawesome.com/
-・フリーイラストは下記サイトのものを使用予定。
 - Canva　https://www.canva.com/ja_jp/free/
