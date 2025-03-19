@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <%= render 'users/user', user: @user %>
+      <h2>New post</h2>
+      <%= render 'cats/cat' %>
+    </div>
+    <div class="col-md-7 offset-md-1">
+      <h1>About detail</h1>
+      <table class="table table-user-show">
+      <% @cats.each do |cat| %>
+        <tr>
+        <td><%= link_to user_path(@user) do %>
+          <%= image_tag @user.get_profile_image(50, 50) %>
+        <% end %></td>
+        <td><%= link_to cat.title, cat_path(cat.id) %></td>
+        <td><%= cat.body %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

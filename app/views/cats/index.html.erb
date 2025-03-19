@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <%= render 'cats/error', model: @cat %>
+    <div class="col-md-4">
+      <%= render 'users/user', user: @user %>
+      <h2>New post</h2>
+      <%= render 'cats/cat', cat: @cat %>
+    </div>
+    <div class="col-md-7 offset-md-1">
+      <table class="table book-index">
+        <h2>Hello Furriends!</h2>
+        <thead>
+          <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+        </thead>
+        <tbody>
+          <% @cats.each do |cat| %>
+            <tr>
+              <td>
+                <%= link_to user_path(cat.user) do %>
+                  <td><%= image_tag @user.get_profile_image(50,50) %></td>
+                <% end %>
+              </td>
+              <td><%= link_to cat.title, cat_path(cat.id) %></td>
+              <td><%= cat.body %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
