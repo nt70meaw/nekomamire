@@ -1,6 +1,6 @@
-# nekomamire
+## nekomamire
 
-## サイト概要
+### サイト概要
 猫好き、猫飼いさん同士で交流ができるコミュニティサイト
 
 ### サイトテーマ
@@ -27,6 +27,7 @@
 ## 設計書
 - 後ほど作成予定
 ​
+
 ## 開発環境
 - OS：Linux
 - 言語：HTML,CSS,JavaScript,Ruby
@@ -35,6 +36,6 @@
 
 
 ## 使用素材
-・フリーアイコン、フリーイラストは下記サイトを使用予定。
+フリーアイコン、フリーイラストは下記サイトを使用予定。
 - Font Awesome　https://fontawesome.com/
 - Canva　https://www.canva.com/ja_jp/free/
