@@ -6,25 +6,88 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/112e0ca7cd.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<body>
-  <header>
-   <% if user_signed_in? %>
-    <li>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    </li>
-  <% else %>
-    <li>
-      <%= link_to "Signup", new_user_registration_path %>
-    </li>
-    <li>
-      <%= link_to "Login", new_user_session_path %>
-    </li>
-  <% end %>
-</header>
-    <%= yield %>
+  <body class="d-flex flex-column vh-100">
+  <header class="shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+      <a class="navbar-brand p-3" href="/">Nekomamire</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+          <li class="nav item">
+            <%= link_to user_path(current_user), class: "nav-link text-dark" do %>
+            <i class="fa-solid fa-house"></i>
+            <span class="glyphicon glyphicon-home" aria-hidden="true"> Home</span>
+            <% end %>
+          </li>
+          <li class="nav item">
+            <%= link_to users_path, class: "nav-link text-dark" do %>
+              <i class="fa-solid fa-people-arrows"></i>
+            <span class="glyphicon glyphicon-user" aria-hidden="true"> Users</span>
+            <% end %>
+          </li>
+          <li class="nav item">
+            <%= link_to cats_path, class: "nav-link text-dark" do %>
+              <i class="fa-solid fa-hand-holding-heart"></i>
+            <span class="glyphicon glyphicon-book" aria-hidden="true"> Post</span>
+            <% end %>
+          </li>
+          <li class="nav item">
+            <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-dark" do %>
+              <i class="fa-solid fa-right-from-bracket"></i>
+            <span class="glyphicon glyphicon-log-out" aria-hidden="true">Log out</span>
+            <% end %>
+          </li>
+        <% else %>
+
+         <li class="nav item">
+                <%= link_to root_path, class: "nav-link text-dark" do %>
+                <i class="fa-solid fa-house"></i>
+                <span class="glyphicon glyphicon-home" aria-hidden="true"> Home</span>
+                <% end %>
+                </li>
+              <li class="nav item">
+              <%= link_to home_about_path, class: "nav-link text-dark" do %>
+                <i class="fa-solid fa-cat"></i>
+                <span class="glyphicon glyphicon-link" aria-hidden="true"> About</span>
+                <% end %>
+                </li>
+              <li class="nav item">
+              <%= link_to new_user_registration_path, class: "nav-link text-dark" do %>
+                <i class="fa-solid fa-user-check"></i>
+                <span class="glyphicon glyphicon-edit" aria-hidden="true">Sign up</span>
+                <% end %>
+              </li>
+              <li class="nav item">
+              <%= link_to new_user_session_path, class: "nav-link text-dark" do %>
+              </i><i class="fa-solid fa-right-to-bracket"></i>
+              <span class="glyphicon glyphicon-log-in" aria-hidden="true">Log in</span>
+               <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="body">
+      <p class="notice"><%= notice %></p>
+
+      <%= yield %>
+
+        <footer>
+          <p class="text-center"> CopyRight Infratop.inc</p>
+        </footer>
+      </div>
+    </div>
   </body>
 </html>

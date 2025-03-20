@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       def index   
         @user = current_user
         @users = User.all
-        @cat = cat.new
+        @cat = Cat.new
         @cats = Cat.all
       end
     

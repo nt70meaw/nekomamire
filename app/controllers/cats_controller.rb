@@ -16,7 +16,7 @@ class CatsController < ApplicationController
         @cat.user_id = current_user.id 
         if @cat.save
           flash[:notice] = "Successfully posted"
-          redirect_to book_path(@cat)
+          redirect_to cat_path(@cat)
         else
           @user = current_user
           @cats = Cat.all
@@ -37,7 +37,7 @@ class CatsController < ApplicationController
         @cat = Cat.find(params[:id])
         if @cat.update(cat_params)
           flash[:notice] = "Successfully updated."
-          redirect_to book_path(@cat)
+          redirect_to cat_path(@cat)
         else
           if @cat.errors[:title].include?("can't be blank")
             flash[:alert] = "Title can't be blank"
