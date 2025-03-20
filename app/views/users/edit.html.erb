@@ -1,6 +1,7 @@
+<div style="margin-left: 20px;">
 <h1>User info</h1>
 <%= form_with(model: @user) do |f| %>
-<%= render 'books/error', model: @user %>
+<%= render 'cats/error', model: @user %>
   <div class="user-name">Name</div>
     <%= f.text_field :name %>
   <div class="user-edit-image">Image</div>
@@ -11,3 +12,4 @@
     <%= f.submit " Update User" %>
   </div>
 <% end %>
+</div>
