@@ -1,21 +1,24 @@
 <%= form_with model: Cat.new do |f| %>
 
-    <div class="form-title row">
-      <%= f.label :Title %>
-      <%= f.text_field :title, class: "col-xs-12" %>
-    </div>
-  
-    <div class="form-body row">
-        <%= f.label :Opinion %>
-      <%= f.text_area :body, class: "col-xs-12" %>
-    </div>
+  <div class="form-title row mb-3">
+    <%= f.label :Title %>
+    <br>
+    <%= f.text_field :title, class: "col-xs-12" %>
+  </div>
 
-    <div class="form-body row">
-      <%= f.label :image %>
-      <%= f.file_field :image %>
-    </div>
-  
-    <div class="actions row">
-      <%= f.submit class: "btn btn-primary col-xs-12" %>
-    </div>
-  <% end %>
+  <div class="form-body row mb-3">
+      <%= f.label :Opinion %>
+      <br>
+      <%= f.text_area :body, class: "col-xs-12" %>
+  </div>
+
+  <div class="form-body row mb-3">
+    <%= f.label :image %>
+    <br> 
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="actions row">
+    <%= f.submit class: "btn btn-primary col-xs-12" %>
+  </div>
+<% end %>
