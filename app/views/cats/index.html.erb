@@ -24,9 +24,11 @@
               </td>
               <td><%= link_to cat.title, cat_path(cat.id) %></td>
               <td><%= cat.body %></td>
-              <% end %>
-              <td><%= link_to post_image_path(post_image.id) do %></td>
-              <td><%= image_tag post_image.get_image %></td>
+              <td>
+                <%= link_to cat_path(cat.id) do %>
+                  <%= image_tag cat.get_image %>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>

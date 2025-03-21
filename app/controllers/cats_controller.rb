@@ -20,7 +20,6 @@ class CatsController < ApplicationController
         @cat = Cat.new(cat_params) 
         @cat.user_id = current_user.id 
         if @cat.save
-          @post_image = @cat.post_images.create(post_image_params)
           flash[:notice] = "Successfully posted"
           redirect_to @cat
         else
@@ -62,12 +61,9 @@ class CatsController < ApplicationController
       end
     end
       
-      private
-      def cat_params
-      params.require(:cat).permit(:title, :body, :post_image)
-      end   
+    private
+    def cat_params
+      params.require(:cat).permit(:title, :body, :image)
+    end   
 
-      def post_image_params
-        params.require(:post_image).permit(:image)  
-      end
    end

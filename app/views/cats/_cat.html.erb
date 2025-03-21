@@ -9,6 +9,11 @@
         <%= f.label :Opinion %>
       <%= f.text_area :body, class: "col-xs-12" %>
     </div>
+
+    <div class="form-body row">
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+    </div>
   
     <div class="actions row">
       <%= f.submit class: "btn btn-primary col-xs-12" %>
