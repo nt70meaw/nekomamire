@@ -1,5 +1,10 @@
 class CatsController < ApplicationController
-    def show
+  def new
+    @cat = Cat.new
+    @post_image = @cat.post_images
+  end
+  
+  def show
        @cat = Cat.new
        @cat = Cat.find(params[:id])
        @user = @cat.user
@@ -15,8 +20,9 @@ class CatsController < ApplicationController
         @cat = Cat.new(cat_params) 
         @cat.user_id = current_user.id 
         if @cat.save
+          @post_image = @cat.post_images.create(post_image_params)
           flash[:notice] = "Successfully posted"
-          redirect_to cat_path(@cat)
+          redirect_to @cat
         else
           @user = current_user
           @cats = Cat.all
@@ -58,6 +64,10 @@ class CatsController < ApplicationController
       
       private
       def cat_params
-      params.require(:cat).permit(:title, :body)
+      params.require(:cat).permit(:title, :body, :post_image)
       end   
+
+      def post_image_params
+        params.require(:post_image).permit(:image)  
+      end
    end

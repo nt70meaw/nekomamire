@@ -14,11 +14,13 @@ class UsersController < ApplicationController
     
       def new
         @user = User.new
+        @post_image = @user.post_images
       end
     
       def create
         @user = User.new(user_params)
         if @user.save
+          @post_image = @user.post_images.create(post_image_params)
           flash[:notice] = "User was successfully created."
           redirect_to @user
         else
@@ -47,4 +49,8 @@ class UsersController < ApplicationController
       def user_params
         params.require(:user).permit(:name, :profile_image, :introduction)
       end  
+
+      def post_image_params
+        params.require(:post_image).permit(:image) 
+      end
 end
