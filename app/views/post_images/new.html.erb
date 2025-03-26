@@ -1,6 +1,0 @@
-<h1>Post new image</h1>
-<%= form_with model: @post_image do |f| %>
-  <h4>image</h4>
-  <%= f.file_field :image, accept: "image/*" %>
-  <%= f.submit '投稿' %>
-<% end %>
